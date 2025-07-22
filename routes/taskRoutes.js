@@ -1,6 +1,6 @@
 import express from 'express';
 import router from express();
-import taskController from '../controllers/';
+import taskController from '../controllers/authController.js';
 
 router.post('/', taskController.createTask);
 

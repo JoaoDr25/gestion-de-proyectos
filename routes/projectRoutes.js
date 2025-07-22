@@ -1,6 +1,6 @@
 import express from 'express';
 import router from express ();
-import projectController from '../controllers'
+import projectController from '../controllers.js'
 
 router.post('/', projectController.createProject);
 
