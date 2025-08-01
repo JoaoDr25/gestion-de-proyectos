@@ -1,9 +1,22 @@
 import express from 'express';
-import router from express();
-import userController from '../controllers/authController.js';
+import { 
+  getAllUsers, 
+  getMyProfile, 
+  getUserById, 
+  searchUsers 
+} from '../controllers/userController.js';
+import { protect } from '../middleware/authMiddleware.js';
 
-router.post('/register', userController.register);
-router.post('/login', userController.login);
-router.get('profile:id', userController.getProfile);
+const router = express.Router();
+
+router.get('/me', protect, getMyProfile);
+
+router.get('/search', protect, searchUsers);
+
+router.get('/', protect, getAllUsers);
+
+router.get('/:id', protect, getUserById);
 
 export default router;
+
+

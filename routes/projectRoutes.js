@@ -1,18 +1,27 @@
 import express from 'express';
-import router from express ();
-import projectController from '../controllers.js'
+import protect from '../middlewares/authMiddlewares.js'
+import { 
+    createProject,
+    getUserProjects,
+    getProjectById,
+    updateProject,
+    deleteProject, 
+    addMember
+} from '../controllers/projectController.js'
 
-router.post('/', projectController.createProject);
+const router = express.Router();
 
-router.get('/', projectController.getAllProjects);
+router.post('/', protect, createProject);
 
-router.get('/:id', projectController.getProjectById);
+router.get('/', protect, getUserProjects);
 
-router.put('/:id', projectController.updateProject);
+router.get('/:id', protect, getProjectById);
 
-router.delete('/:id', projectController.deleteProject);
+router.put('/:id', protect, updateProject);
 
-router.get('/:id/add_member', projectController.addMember);
+router.delete('/:id', protect, deleteProject);
+
+router.patch('/:id/add_member', protect, addMember);
 
 export default router;
 
