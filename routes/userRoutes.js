@@ -5,7 +5,8 @@ import {
   getUserById, 
   searchUsers 
 } from '../controllers/userController.js';
-import { protect } from '../middleware/authMiddleware.js';
+import protect from '../middlewares/authMiddlewares.js';
+
 
 const router = express.Router();
 

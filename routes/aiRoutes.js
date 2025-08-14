@@ -5,7 +5,7 @@ import { analyzeProjectProgress } from '../controllers/AI/analyzeProgress.js';
 import { summarizeProjectController } from '../controllers/AI/summarizeProject.js';
 import { recommendImprovementsController } from '../controllers/AI/recommendImprovements.js';
 
-import { protect } from '../middlewares/authMiddleware.js';
+import protect from '../middlewares/authMiddlewares.js';
 
 const router = express.Router();
 
